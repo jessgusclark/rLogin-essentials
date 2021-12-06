@@ -13,6 +13,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Push package to npmjs.com
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+        registry-url: https://registry.npmjs.org/
+        always-auth: true
+          
     - run: npm install
     - run: npm run build
     - run: npm publish --access public
